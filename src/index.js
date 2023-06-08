@@ -44,7 +44,7 @@ function createList(element) {
   elementInput.type = 'checkbox';
 
   elementLabel.textContent = `${element.description}, ${element.completed}, ${element.index}`;
-  elementButton.textContent = '...'
+  elementButton.textContent = '...';
 }
 
 arr.forEach(createList);
