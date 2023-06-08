@@ -1,22 +1,6 @@
 // import _ from 'lodash';
 import './style.css';
 
-/*
-function component() {
-  const element = document.createElement('p');
-
-  // Lodash, now imported by this script
-  // element.innerHTML = _.join(['to-do', 'list'], ' ');
-  element.innerHTML = _.arr;
-
-  element.classList.add('p-toDoList');
-
-  return element;
-}
-
-document.body.appendChild(component());
-*/
-
 // build array to store objects
 
 const arr = [];
