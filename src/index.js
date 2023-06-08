@@ -30,16 +30,21 @@ arr.push(task3);
 
 function createList(element) {
   const elementLi = document.createElement('li');
+  const elementDiv = document.createElement('div');
   const elementInput = document.createElement('input');
   const elementLabel = document.createElement('label');
+  const elementButton = document.createElement('button');
 
   elementLu.appendChild(elementLi);
-  elementLi.appendChild(elementInput);
-  elementLi.appendChild(elementLabel);
+  elementLi.appendChild(elementDiv);
+  elementDiv.appendChild(elementInput);
+  elementDiv.appendChild(elementLabel);
+  elementLi.appendChild(elementButton);
 
   elementInput.type = 'checkbox';
 
   elementLabel.textContent = `${element.description}, ${element.completed}, ${element.index}`;
+  elementButton.textContent = '...'
 }
 
 arr.forEach(createList);

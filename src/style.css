@@ -11,23 +11,55 @@ main {
   align-items: center;
 }
 
-div {
-  top: 0;
+.to-do-Div {
   background-color: #fff;
-  width: 50%;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 3px;
   box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+  width: 50%;
+}
+
+.to-do-Div2 {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  text-align: center;
+  box-sizing: border-box;
+  border: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 h1 {
   margin: 0;
   padding: 10px;
   width: 100%;
-  box-sizing: border-box;
   font-size: 1rem;
   padding-left: 15px;
+  text-align: start;
+}
+
+span {
+  display: flex;
+  align-items: center;
+  text-align: end;
+  padding-right: 25px;
+}
+
+.to-do-Div3 {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  box-sizing: border-box;
   border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+input {
+  padding: 12.5px;
+  border: 0;
+  font-style: italic;
+}
+
+input::placeholder {
+  color: #bbbfc4;
 }
 
 ul {
@@ -37,6 +69,7 @@ ul {
   display: flex;
   flex-direction: column;
   align-items: start;
+  border: 1px solid rgba(0, 0, 0, 0.15);
 }
 
 li {
@@ -46,4 +79,15 @@ li {
   box-sizing: border-box;
   border: 1px solid rgba(0, 0, 0, 0.15);
   list-style: none;
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  border: none;
+  background: transparent;
+  text-align: center;
+  font-size: 1rem;
+  font-weight: 600;
+  transform: rotate(90deg);
 }
