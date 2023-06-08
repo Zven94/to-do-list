@@ -15,7 +15,7 @@ main {
   background-color: #fff;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 3px;
-  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 6px 4px rgba(0, 0, 0, 0.15);
   width: 50%;
 }
 
@@ -83,11 +83,28 @@ li {
   justify-content: space-between;
 }
 
-button {
+.threeDots {
   border: none;
   background: transparent;
   text-align: center;
   font-size: 1rem;
   font-weight: 600;
   transform: rotate(90deg);
+}
+
+.to-do-ClearButtonDiv {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.to-do-ClearButton {
+  width: 100%;
+  color: #bbbfc4;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+}
+
+h2 {
+  font-weight: 400;
 }

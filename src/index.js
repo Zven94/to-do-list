@@ -34,6 +34,7 @@ function createList(element) {
   const elementInput = document.createElement('input');
   const elementLabel = document.createElement('label');
   const elementButton = document.createElement('button');
+  elementButton.classList.add('threeDots');
 
   elementLu.appendChild(elementLi);
   elementLi.appendChild(elementDiv);
