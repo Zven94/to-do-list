@@ -17,13 +17,14 @@ div {
   width: 50%;
   border: 1px solid rgba(0, 0, 0, 0.15);
   border-radius: 3px;
-  box-shadow: 0px 0px 0px 3px rgba(0, 0, 0, 0.05);
+  box-shadow: 0 0 0 3px rgba(0, 0, 0, 0.05);
 }
 
 h1 {
   margin: 0;
   padding: 10px;
-  width: -webkit-fill-available;
+  width: 100%;
+  box-sizing: border-box;
   font-size: 1rem;
   padding-left: 15px;
   border: 1px solid rgba(0, 0, 0, 0.15);
@@ -41,7 +42,8 @@ ul {
 li {
   margin: 0;
   padding: 10px;
-  width: -webkit-fill-available;
+  width: 100%;
+  box-sizing: border-box;
   border: 1px solid rgba(0, 0, 0, 0.15);
   list-style: none;
 }
