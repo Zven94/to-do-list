@@ -4,8 +4,7 @@ export default class Task {
     return todoTask;
   }
 
-  constructor() {
-    this.taskList = document.querySelector('.to-do-list');
+  constructor() { 
     this.divLi = document.querySelector('.divLi');
     this.addBtn = document.querySelector('.submitButton');
     this.taskInput = document.querySelector('.taskInput');
@@ -65,6 +64,8 @@ export default class Task {
         this.saveTask();
       });
     });
+    this.taskInput.placeholder  = 'Add to your list...';
+    this.taskInput.classList.remove('taskInputERROR');
   }
 
   addTask = (index) => {
@@ -73,7 +74,8 @@ export default class Task {
     const taskNumber = this.arr.length;
 
     if (taskToDo === '') {
-      alert('Please enter a task to list.');
+      this.taskInput.placeholder  = 'FILL THIS FIELD';
+      this.taskInput.classList.add('taskInputERROR');
       return;
     }
 
