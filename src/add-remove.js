@@ -71,7 +71,7 @@ export default class Task {
   addTask = (newValue) => {
     const taskToDo = newValue;
     const solved = false;
-    const taskNumber = this.arr.length;
+    const taskNumber = this.arr.length + 1;
 
     if (taskToDo === '') {
       this.taskInput.placeholder = 'FILL THIS FIELD';
