@@ -10,11 +10,10 @@ export default class Task {
     this.taskInput = document.querySelector('.taskInput');
     this.arr = [];
     this.loadTask();
-    this.addBtn.addEventListener('click', () => this.addTask(this.taskInput.value,this.arr.length));
+    this.addBtn.addEventListener('click', () => this.addTask(this.taskInput.value, this.arr.length));
     this.taskInput.addEventListener('keydown', (event) => {
       if (event.key === 'Enter') {
-        this.addTask(this.taskInput.value,this.arr.length);
-        console.log(localStorage.getItem('task'))
+        this.addTask(this.taskInput.value, this.arr.length);
       }
     });
   }
@@ -62,22 +61,20 @@ export default class Task {
         elementLi.style.border = '1px solid rgba(0, 0, 0, 0.15)';
         elementLi.style.boxShadow = 'none';
         task.taskToDo = elementLabel.value;
+        this.saveTask();
       });
     });
-    this.taskInput.placeholder  = 'Add to your list...';
+    this.taskInput.placeholder = 'Add to your list...';
     this.taskInput.classList.remove('taskInputERROR');
-
   }
 
-  addTask = (newValue,index) => {
-    console.log(newValue)
-    //const taskToDo = this.taskInput.value;
+  addTask = (newValue) => {
     const taskToDo = newValue;
     const solved = false;
     const taskNumber = this.arr.length;
 
     if (taskToDo === '') {
-      this.taskInput.placeholder  = 'FILL THIS FIELD';
+      this.taskInput.placeholder = 'FILL THIS FIELD';
       this.taskInput.classList.add('taskInputERROR');
       return;
     }
