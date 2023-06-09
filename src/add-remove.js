@@ -4,16 +4,16 @@ export default class Task {
     return todoTask;
   }
 
-  constructor() { 
+  constructor() {
     this.divLi = document.querySelector('.divLi');
     this.addBtn = document.querySelector('.submitButton');
     this.taskInput = document.querySelector('.taskInput');
     this.arr = [];
     this.loadTask();
-    this.addBtn.addEventListener('click', () => this.addTask(this.arr.length));
+    this.addBtn.addEventListener('click', () => this.addTask(this.taskInput.value,this.arr.length));
     this.taskInput.addEventListener('keydown', (event) => {
       if (event.key === 'Enter') {
-        this.addTask(this.arr.length);
+        this.addTask(this.taskInput.value,this.arr.length);
         console.log(localStorage.getItem('task'))
       }
     });
@@ -61,15 +61,18 @@ export default class Task {
       elementLabel.addEventListener('focusout', () => {
         elementLi.style.border = '1px solid rgba(0, 0, 0, 0.15)';
         elementLi.style.boxShadow = 'none';
-        this.saveTask();
+        task.taskToDo = elementLabel.value;
       });
     });
     this.taskInput.placeholder  = 'Add to your list...';
     this.taskInput.classList.remove('taskInputERROR');
+
   }
 
-  addTask = (index) => {
-    const taskToDo = this.taskInput.value;
+  addTask = (newValue,index) => {
+    console.log(newValue)
+    //const taskToDo = this.taskInput.value;
+    const taskToDo = newValue;
     const solved = false;
     const taskNumber = this.arr.length;
 
