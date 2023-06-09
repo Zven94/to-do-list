@@ -24,10 +24,8 @@ export default class Task {
   }
 
   displayTask = () => {
-    
     this.divLi.innerHTML = '';
     this.arr.forEach((task, index) => {
-      
       const elementLi = document.createElement('li');
       const elementDiv = document.createElement('div');
       const elementDiv2 = document.createElement('div');
@@ -39,13 +37,13 @@ export default class Task {
       elementDeleteButton.classList.add('elementDeleteButton');
       elementDiv.classList.add('elementDiv1');
       elementDiv2.classList.add('elementDiv2');
-      elementLabel.classList.add('taskLabel')
-    
+      elementLabel.classList.add('taskLabel');
+
       this.divLi.appendChild(elementLi);
       elementLi.appendChild(elementDiv);
       elementDiv.appendChild(elementInput);
       elementDiv.appendChild(elementLabel);
-      elementLi.appendChild(elementDiv2)
+      elementLi.appendChild(elementDiv2);
       elementDiv2.appendChild(elementDeleteButton);
       elementDiv2.appendChild(elementButton);
       elementInput.type = 'checkbox';
@@ -63,16 +61,12 @@ export default class Task {
       elementLabel.addEventListener('focusout', () => {
         elementLi.style.border = '1px solid rgba(0, 0, 0, 0.15)';
         elementLi.style.boxShadow = 'none';
-        console.log(elementLabel.value)
-        this.saveTask;
+        this.saveTask();
       });
     });
-
   }
 
   addTask = (index) => {
-    console.log('add task')
-    
     const taskToDo = this.taskInput.value;
     const solved = false;
     const taskNumber = index;
@@ -95,15 +89,12 @@ export default class Task {
   }
 
   removeTask = (index) => {
-    console.log(this.arr + 'remove')
     this.arr.splice(index, 1);
     this.saveTask();
-    console.log(this.arr)
     this.displayTask();
-
   }
 
-  loadTask = () => {console.log('hello task')
+  loadTask = () => {
     const storedTask = localStorage.getItem('task');
     if (storedTask) {
       this.arr = JSON.parse(storedTask);
