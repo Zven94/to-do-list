@@ -11,10 +11,10 @@ export default class Task {
     this.taskInput = document.querySelector('.taskInput');
     this.arr = [];
     this.loadTask();
-    this.addBtn.addEventListener('click', () => this.addTask());
+    this.addBtn.addEventListener('click', () => this.addTask(arr.length));
     this.taskInput.addEventListener('keydown', (event) => {
       if (event.key === 'Enter') {
-        this.addTask();
+        this.addTask(this.arr.length);
       }
     });
   }
