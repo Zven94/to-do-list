@@ -72,6 +72,10 @@ ul {
   border: 1px solid rgba(0, 0, 0, 0.15);
 }
 
+.divLi {
+  width: 100%;
+}
+
 li {
   margin: 0;
   padding: 10px;
