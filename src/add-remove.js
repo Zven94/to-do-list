@@ -62,6 +62,7 @@ export default class Task {
         elementLi.style.boxShadow = 'none';
         task.taskToDo = elementLabel.value;
         this.saveTask();
+        
       });
     });
     this.taskInput.placeholder = 'Add to your list...';
@@ -94,7 +95,7 @@ export default class Task {
   removeTask = (index) => {
     this.arr.splice(index, 1);
     this.arr.forEach((task, index) => {
-      task.taskNumber = index;
+      task.taskNumber = index + 1;
     });
     this.saveTask();
     this.displayTask();
