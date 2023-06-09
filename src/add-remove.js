@@ -1,7 +1,3 @@
-import editTask from './editTask.js';
-
-const reditTask = editTask;
-
 export default class Task {
   static initialize() {
     const todoTask = new Task();
@@ -12,15 +8,19 @@ export default class Task {
     this.taskList = document.querySelector('.to-do-list');
     this.divLi = document.querySelector('.divLi');
     this.addBtn = document.querySelector('.submitButton');
+    this.taskInput = document.querySelector('.taskInput');
     this.arr = [];
     this.loadTask();
     this.addBtn.addEventListener('click', () => this.addTask());
-    
+    this.taskInput.addEventListener('keydown', (event) => {
+      if (event.key === 'Enter') {
+        this.addTask();
+      }
+    });
   }
 
   saveTask = () => {
     localStorage.setItem('task', JSON.stringify(this.arr));
-    
   }
 
   displayTask = () => {
@@ -72,8 +72,8 @@ export default class Task {
 
   addTask = (index) => {
     console.log('add task')
-    const taskInput = document.querySelector('.taskInput');
-    const taskToDo = taskInput.value;
+    
+    const taskToDo = this.taskInput.value;
     const solved = false;
     const taskNumber = index;
 
@@ -90,7 +90,7 @@ export default class Task {
 
     this.arr.push(task);
     this.saveTask();
-    taskInput.value = '';
+    this.taskInput.value = '';
     this.displayTask();
   }
 
