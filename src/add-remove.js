@@ -70,7 +70,7 @@ export default class Task {
   addTask = (index) => {
     const taskToDo = this.taskInput.value;
     const solved = false;
-    const taskNumber = index;
+    const taskNumber = this.arr.length;
 
     if (taskToDo === '') {
       alert('Please enter a task to list.');
@@ -91,6 +91,9 @@ export default class Task {
 
   removeTask = (index) => {
     this.arr.splice(index, 1);
+    this.arr.forEach((task, index) => {
+      task.taskNumber = index;
+    });
     this.saveTask();
     this.displayTask();
   }
