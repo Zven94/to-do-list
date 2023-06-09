@@ -62,6 +62,16 @@ input::placeholder {
   color: #bbbfc4;
 }
 
+.taskInput {
+  width: 100%;
+}
+
+.submitButton {
+  background-color: transparent;
+  border: 0;
+  width: 25%;
+}
+
 ul {
   margin: 0;
   width: auto;
@@ -85,6 +95,33 @@ li {
   list-style: none;
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  font-size: 1rem;
+}
+
+.elementDiv1 {
+  width: 87%;
+  display: flex;
+  align-items: center;
+  font-weight: 300;
+  font-size: 0.8rem;
+}
+
+.elementDiv2 {
+  width: 13%;
+  display: flex;
+  align-items: center;
+  font-weight: 300;
+  font-size: 0.8rem;
+}
+
+.taskLabel {
+  width: 100%;
+}
+
+.elementDeleteButton {
+  background-color: transparent;
+  border: 0;
 }
 
 .threeDots {
