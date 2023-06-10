@@ -62,7 +62,6 @@ export default class Task {
         elementLi.style.boxShadow = 'none';
         task.taskToDo = elementLabel.value;
         this.saveTask();
-        
       });
     });
     this.taskInput.placeholder = 'Add to your list...';
