@@ -49,6 +49,11 @@ export default class Task {
       elementDiv2.appendChild(elementButton);
       elementInput.type = 'checkbox';
       elementInput.classList.add('checkbox');
+
+      if (task.solved === true) {
+        elementInput.checked = true;
+      }
+
       elementLabel.value = `${task.taskToDo}`;
       elementDeleteButton.textContent = 'X';
       elementButton.textContent = '...';
@@ -69,6 +74,7 @@ export default class Task {
       });
       elementInput.addEventListener('change', () => {
         this.completeTask(index);
+        this.saveTask();
       });
     });
     this.taskInput.placeholder = 'Add to your list...';
