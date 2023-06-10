@@ -1,6 +1,6 @@
 // function to mark as completed
 
-export default const markComplete = (tasks, index) => {
+const markComplete = (tasks, index) => {
   if (tasks[index].solved === false) {
     tasks[index].solved = true;
   } else {
@@ -8,3 +8,4 @@ export default const markComplete = (tasks, index) => {
   }
   return tasks[index].solved;
 };
+export default markComplete;
