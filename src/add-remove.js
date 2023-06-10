@@ -1,3 +1,5 @@
+import markComplete from './statusUpdate.js';
+
 export default class Task {
   static initialize() {
     const todoTask = new Task();
@@ -46,10 +48,17 @@ export default class Task {
       elementDiv2.appendChild(elementDeleteButton);
       elementDiv2.appendChild(elementButton);
       elementInput.type = 'checkbox';
+      elementInput.classList.add('checkbox');
+
+      if (task.solved === true) {
+        elementInput.checked = true;
+      }
+
       elementLabel.value = `${task.taskToDo}`;
       elementDeleteButton.textContent = 'X';
       elementButton.textContent = '...';
-
+      const clearButton = document.querySelector('.to-do-ClearButton');
+      clearButton.addEventListener('click', this.deletedFinishTask);
       elementDeleteButton.addEventListener('click', () => {
         this.removeTask(index);
       });
@@ -61,6 +70,10 @@ export default class Task {
         elementLi.style.border = '1px solid rgba(0, 0, 0, 0.15)';
         elementLi.style.boxShadow = 'none';
         task.taskToDo = elementLabel.value;
+        this.saveTask();
+      });
+      elementInput.addEventListener('change', () => {
+        this.completeTask(index);
         this.saveTask();
       });
     });
@@ -96,6 +109,16 @@ export default class Task {
     this.arr.forEach((task, index) => {
       task.taskNumber = index + 1;
     });
+    this.saveTask();
+    this.displayTask();
+  }
+
+  completeTask = (index) => {
+    this.arr.solved = markComplete(this.arr, index);
+  }
+
+  deletedFinishTask = () => {
+    this.arr = this.arr.filter((element) => element.solved !== true);
     this.saveTask();
     this.displayTask();
   }
