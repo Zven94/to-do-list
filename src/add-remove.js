@@ -1,3 +1,5 @@
+import {statusUpdates , markComplete} from './statusUpdate.js'
+
 export default class Task {
   static initialize() {
     const todoTask = new Task();
@@ -46,10 +48,16 @@ export default class Task {
       elementDiv2.appendChild(elementDeleteButton);
       elementDiv2.appendChild(elementButton);
       elementInput.type = 'checkbox';
+      elementInput.classList.add('checkbox');
       elementLabel.value = `${task.taskToDo}`;
       elementDeleteButton.textContent = 'X';
       elementButton.textContent = '...';
 
+
+      const clearButton = document.querySelector('.to-do-ClearButton');
+      clearButton.addEventListener('click', this.deletedFinishTask)
+  
+  
       elementDeleteButton.addEventListener('click', () => {
         this.removeTask(index);
       });
@@ -63,6 +71,10 @@ export default class Task {
         task.taskToDo = elementLabel.value;
         this.saveTask();
       });
+      elementInput.addEventListener('change', () => {
+        this.completeTask(index)
+      });
+
     });
     this.taskInput.placeholder = 'Add to your list...';
     this.taskInput.classList.remove('taskInputERROR');
@@ -99,6 +111,17 @@ export default class Task {
     this.saveTask();
     this.displayTask();
   }
+
+  completeTask = (index) =>{
+    this.arr.solved = markComplete(this.arr,index);
+  }
+
+  deletedFinishTask = () => {
+    this.arr = this.arr.filter((element) => element.solved !== true);
+    console.log(this.arr)
+    this.saveTask();
+    this.displayTask();
+    }
 
   loadTask = () => {
     const storedTask = localStorage.getItem('task');
