@@ -1,4 +1,4 @@
-import {statusUpdates , markComplete} from './statusUpdate.js'
+import markComplete from './statusUpdate.js';
 
 export default class Task {
   static initialize() {
@@ -52,12 +52,8 @@ export default class Task {
       elementLabel.value = `${task.taskToDo}`;
       elementDeleteButton.textContent = 'X';
       elementButton.textContent = '...';
-
-
       const clearButton = document.querySelector('.to-do-ClearButton');
-      clearButton.addEventListener('click', this.deletedFinishTask)
-  
-  
+      clearButton.addEventListener('click', this.deletedFinishTask);
       elementDeleteButton.addEventListener('click', () => {
         this.removeTask(index);
       });
@@ -72,9 +68,8 @@ export default class Task {
         this.saveTask();
       });
       elementInput.addEventListener('change', () => {
-        this.completeTask(index)
+        this.completeTask(index);
       });
-
     });
     this.taskInput.placeholder = 'Add to your list...';
     this.taskInput.classList.remove('taskInputERROR');
@@ -112,16 +107,15 @@ export default class Task {
     this.displayTask();
   }
 
-  completeTask = (index) =>{
-    this.arr.solved = markComplete(this.arr,index);
+  completeTask = (index) => {
+    this.arr.solved = markComplete(this.arr, index);
   }
 
   deletedFinishTask = () => {
     this.arr = this.arr.filter((element) => element.solved !== true);
-    console.log(this.arr)
     this.saveTask();
     this.displayTask();
-    }
+  }
 
   loadTask = () => {
     const storedTask = localStorage.getItem('task');
