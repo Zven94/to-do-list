@@ -71,7 +71,7 @@
 - **[Effects with css]**
 - **[Use webpack to create the app]**
 
-<p align="right">(<a href="#readme-top">back to top</a>)</p>
+<p align="right"><a href="https://zven94.github.io/to-do-list/">DEMO !</a></p>
 
 <!-- LIVE DEMO -->
 
